@@ -9,20 +9,36 @@
 import UIKit
 
 struct Task {
+    var id: String!
     var isFinished: Bool
     var title: String
     var description: String
     var date: String
+    var create_at: String
+    var update_at: String
     
-    init(isFinished: Bool = false, title: String, description: String) {
+    init(id: String = UUID.init().uuidString,
+         isFinished: Bool = false,
+         title: String,
+         description: String,
+         create_at: String?,
+         update_at: String?,
+         date: String?) {
+        
         self.isFinished = isFinished;
         self.title = title;
         self.description = description;
+        self.id = id;
         
-        let date = Date()
+        let dateNow = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: dateNow)
         
-        self.date = formatter.string(from: date)
+        
+        self.date = date ?? result;
+        self.create_at = create_at ?? result
+        self.update_at = update_at ?? result
+        
     }
 }
