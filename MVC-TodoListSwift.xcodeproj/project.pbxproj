@@ -17,6 +17,7 @@
 		1879F6B2248144BE00345426 /* MVC_TodoListSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6B1248144BE00345426 /* MVC_TodoListSwiftTests.swift */; };
 		1879F6BD248144BE00345426 /* MVC_TodoListSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6BC248144BE00345426 /* MVC_TodoListSwiftUITests.swift */; };
 		1879F6CF2481450F00345426 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6CE2481450F00345426 /* Task.swift */; };
+		1879F6D1248146AE00345426 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6D0248146AE00345426 /* TaskService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1879F6BC248144BE00345426 /* MVC_TodoListSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVC_TodoListSwiftUITests.swift; sourceTree = "<group>"; };
 		1879F6BE248144BE00345426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1879F6CE2481450F00345426 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		1879F6D0248146AE00345426 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		1879F6CA248144D900345426 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1879F6D0248146AE00345426 /* TaskService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				1879F69C248144BA00345426 /* ViewController.swift in Sources */,
 				1879F698248144BA00345426 /* AppDelegate.swift in Sources */,
+				1879F6D1248146AE00345426 /* TaskService.swift in Sources */,
 				1879F6CF2481450F00345426 /* Task.swift in Sources */,
 				1879F6A2248144BA00345426 /* MVC_TodoListSwift.xcdatamodeld in Sources */,
 				1879F69A248144BA00345426 /* SceneDelegate.swift in Sources */,
