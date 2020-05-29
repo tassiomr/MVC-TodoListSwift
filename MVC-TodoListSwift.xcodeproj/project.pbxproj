@@ -16,6 +16,7 @@
 		1879F6A7248144BD00345426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1879F6A5248144BD00345426 /* LaunchScreen.storyboard */; };
 		1879F6B2248144BE00345426 /* MVC_TodoListSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6B1248144BE00345426 /* MVC_TodoListSwiftTests.swift */; };
 		1879F6BD248144BE00345426 /* MVC_TodoListSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6BC248144BE00345426 /* MVC_TodoListSwiftUITests.swift */; };
+		1879F6CF2481450F00345426 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6CE2481450F00345426 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1879F6B8248144BE00345426 /* MVC-TodoListSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MVC-TodoListSwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1879F6BC248144BE00345426 /* MVC_TodoListSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVC_TodoListSwiftUITests.swift; sourceTree = "<group>"; };
 		1879F6BE248144BE00345426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1879F6CE2481450F00345426 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,10 @@
 		1879F696248144BA00345426 /* MVC-TodoListSwift */ = {
 			isa = PBXGroup;
 			children = (
+				1879F6CD248144EE00345426 /* Views */,
+				1879F6CC248144E800345426 /* Controllers */,
+				1879F6CB248144E300345426 /* Models */,
+				1879F6CA248144D900345426 /* Services */,
 				1879F697248144BA00345426 /* AppDelegate.swift */,
 				1879F699248144BA00345426 /* SceneDelegate.swift */,
 				1879F69B248144BA00345426 /* ViewController.swift */,
@@ -129,6 +135,35 @@
 				1879F6BE248144BE00345426 /* Info.plist */,
 			);
 			path = "MVC-TodoListSwiftUITests";
+			sourceTree = "<group>";
+		};
+		1879F6CA248144D900345426 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1879F6CB248144E300345426 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1879F6CE2481450F00345426 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1879F6CC248144E800345426 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1879F6CD248144EE00345426 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +299,7 @@
 			files = (
 				1879F69C248144BA00345426 /* ViewController.swift in Sources */,
 				1879F698248144BA00345426 /* AppDelegate.swift in Sources */,
+				1879F6CF2481450F00345426 /* Task.swift in Sources */,
 				1879F6A2248144BA00345426 /* MVC_TodoListSwift.xcdatamodeld in Sources */,
 				1879F69A248144BA00345426 /* SceneDelegate.swift in Sources */,
 			);
