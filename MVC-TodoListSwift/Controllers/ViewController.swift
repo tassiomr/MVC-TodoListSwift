@@ -21,21 +21,6 @@ class ViewController: UIViewController {
 		self.getTasks()
 	}
 	
-	func getTasks() {
-		tasks = self.services.read()
-	}
-	
-	func deleteTask(task: Task) {
-		self.services.delete(task: task)
-	}
-	
-	func selectFinish(task: Task) {
-		task.toggle()
-		
-		self.services.update(task: task)
-	}
-	
-	
 	func setupNavigationBar () {
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.title = "Tasks"
@@ -49,6 +34,19 @@ class ViewController: UIViewController {
 		
 		navigationController?.pushViewController(controller, animated: true)
 	}
+	
+	func getTasks() {
+		tasks = self.services.read()
+	}
+	
+	func deleteTask(task: Task) {
+		self.services.delete(task: task)
+	}
+	
+	func selectFinish(task: Task) {
+		task.toggle()
+		self.services.update(task: task)
+	}
 }
 
 
@@ -58,16 +56,12 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let ordered = self.tasks.sorted { (task1, task2) -> Bool in
-			task1.isFinished as AnyObject !== task2.isFinished as AnyObject
-		}
-		
-		let task = ordered[indexPath.row]
+		let task = self.tasks[indexPath.row]
 		
 		let cell: UITableViewCell = UITableViewCell()
 		cell.textLabel?.text = task.title
 		cell.detailTextLabel?.text = task.description
-		
+
 		if(task.isFinished) {
 			cell.backgroundColor = .red
 		} else {
@@ -88,7 +82,10 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let delete = UIContextualAction(style: .destructive, title: "Delete") {_,_,completeHandler in
 			completeHandler(true)
-			print("delete")
+			let result = self.tasks[indexPath.row]
+			self.deleteTask(task: result)
+			self.tasks.remove(at: indexPath.row)
+			tableView.reloadData()
 		}
 		delete.backgroundColor = .orange
 		
