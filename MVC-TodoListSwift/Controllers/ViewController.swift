@@ -11,27 +11,40 @@ import UIKit
 class ViewController: UIViewController {
 	var services: TaskService!;
 	var tasks = [Task]()
+	var selectedTask: Task?
+	
 	@IBOutlet weak var tableView: UITableView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		tableView.delegate = self
+		
 		services = TaskService()
 		self.setupNavigationBar()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
 		self.getTasks()
+		self.selectedTask = nil;
+		tableView.reloadData()
 	}
 	
 	func setupNavigationBar () {
 		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.title = "Tasks"
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToAddPage))
-		
 	}
 	
 	@objc func goToAddPage() {
 		let storyboard = UIStoryboard(name: "Main", bundle: .main)
-
+		
 		let controller = storyboard.instantiateViewController(withIdentifier: "addViewController") as! AddTaskViewController
+		
+		if self.selectedTask != nil {
+			controller.task = self.selectedTask
+		}
+		
 		
 		navigationController?.pushViewController(controller, animated: true)
 	}
@@ -40,12 +53,17 @@ class ViewController: UIViewController {
 		tasks = self.services.read()
 	}
 	
-	func deleteTask(task: Task) {
+	func deleteTask(indexPath: IndexPath) {
+		let task = self.tasks[indexPath.row]
+		self.tasks.remove(at: indexPath.row)
+		tableView.reloadData()
+		
 		self.services.delete(task: task)
 	}
 	
 	func selectFinish(task: Task) {
 		task.toggle()
+		self.tableView.reloadData()
 		self.services.update(task: task)
 	}
 }
@@ -62,7 +80,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 		let cell: UITableViewCell = UITableViewCell()
 		cell.textLabel?.text = task.title
 		cell.detailTextLabel?.text = task.description
-
+		
 		if(task.isFinished) {
 			cell.backgroundColor = .red
 		} else {
@@ -80,24 +98,34 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	
+	func uiContextualAction(style: UIContextualAction.Style, title: String, color: UIColor, handler: @escaping() -> Void) -> UIContextualAction {
+		
+		let uiButton = UIContextualAction(style: style, title: title) { (action, view, completion) in
+			completion(true)
+			handler()
+			
+		}
+		uiButton.backgroundColor = color
+		
+		return uiButton
+	}
+	
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		let delete = UIContextualAction(style: .destructive, title: "Delete") {_,_,completeHandler in
-			completeHandler(true)
-			let result = self.tasks[indexPath.row]
-			self.deleteTask(task: result)
-			self.tasks.remove(at: indexPath.row)
-			tableView.reloadData()
-		}
-		delete.backgroundColor = .orange
 		
-		let finish = UIContextualAction(style: .normal, title: "Finish") { (_, _, completeHandler) in
-			completeHandler(true)
+		let delete = uiContextualAction(style: .destructive, title: "Delete", color: .orange) {
+			self.deleteTask(indexPath: indexPath)
+		}
+		
+		let finish = uiContextualAction(style: .normal, title: "Finish", color: .gray) {
 			self.selectFinish(task: self.tasks[indexPath.row])
-			tableView.reloadData()
 		}
-		finish.backgroundColor = .gray
 		
-		let buttons = UISwipeActionsConfiguration(actions: [delete, finish])
+		let edit = uiContextualAction(style: .normal, title: "Edit", color: .magenta) {
+			self.selectedTask = self.tasks[indexPath.row]
+			self.goToAddPage()
+		}
+		
+		let buttons = UISwipeActionsConfiguration(actions: [delete, finish, edit])
 		return buttons
 	}
 }

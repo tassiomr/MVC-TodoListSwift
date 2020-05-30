@@ -11,7 +11,7 @@ import Foundation
 
 class Task {
 	var id: String
-	var isFinished: Bool
+	var isFinished: Bool!
 	var title: String
 	var description: String
 	var date: String
@@ -45,6 +45,4 @@ class Task {
 	func toggle()  {
 		self.isFinished = !self.isFinished
 	}
-	
-	
 }
