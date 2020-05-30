@@ -102,6 +102,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="creteTask" destination="ttu-Zq-T1I" eventType="touchUpInside" id="e1L-7p-413"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92439893911565119" green="1" blue="0.7326827894664828" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -129,6 +132,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="al5-YQ-Kxh"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextArea" destination="V7t-Yc-HWE" id="mIq-zR-OrM"/>
+                        <outlet property="titleTextField" destination="g2p-xD-04S" id="17P-AQ-cPX"/>
+                        <outlet property="toggle" destination="PuQ-Qb-atX" id="5Ed-0N-pTi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFR-mN-wnF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
