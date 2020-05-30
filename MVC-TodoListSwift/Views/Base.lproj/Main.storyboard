@@ -134,6 +134,7 @@
                     </view>
                     <connections>
                         <outlet property="descriptionTextArea" destination="V7t-Yc-HWE" id="mIq-zR-OrM"/>
+                        <outlet property="saveButton" destination="NAK-NE-ZyD" id="6OT-wA-DGM"/>
                         <outlet property="titleTextField" destination="g2p-xD-04S" id="17P-AQ-cPX"/>
                         <outlet property="toggle" destination="PuQ-Qb-atX" id="5Ed-0N-pTi"/>
                     </connections>

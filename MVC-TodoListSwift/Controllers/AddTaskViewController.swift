@@ -13,6 +13,7 @@ class AddTaskViewController: UIViewController {
 	@IBOutlet weak var titleTextField: UITextField!
 	@IBOutlet weak var descriptionTextArea: UITextView!
 	@IBOutlet weak var toggle: UISwitch!
+	@IBOutlet weak var saveButton: UIButton!
 	
 	var service: TaskService!
 	var task: Task?
@@ -31,12 +32,13 @@ class AddTaskViewController: UIViewController {
 	
 	func setupUI () {
 		navigationItem.title = "New Task"
+		self.saveButton.isEnabled = false
 	}
 	
 	
 	@IBAction func creteTask(){
 		if let title = titleTextField.text {
-			self.service.create(task: Task(title: title, description: descriptionTextArea.text ?? ""))
+			self.service.create(task: Task(isFinished: self.toggle.isOn, title: title, description: descriptionTextArea.text ?? ""))
 		}
 		
 		navigationController?.popViewController(animated: true)
@@ -44,6 +46,17 @@ class AddTaskViewController: UIViewController {
 }
 
 extension AddTaskViewController : UITextViewDelegate, UITextFieldDelegate {
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		if let text = textField.text {
+			if text.count > 0 {
+				self.saveButton.isEnabled = true
+			}
+		} else {
+			self.saveButton.isEnabled = false
+		}
+		
+	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		self.view.endEditing(true)
