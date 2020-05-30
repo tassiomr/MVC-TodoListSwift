@@ -29,8 +29,9 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func goToAddPage() {
-		let controller = UIViewController()
-		controller.view.backgroundColor = .purple
+		let storyboard = UIStoryboard(name: "Main", bundle: .main)
+
+		let controller = storyboard.instantiateViewController(withIdentifier: "addViewController") as! AddTaskViewController
 		
 		navigationController?.pushViewController(controller, animated: true)
 	}
