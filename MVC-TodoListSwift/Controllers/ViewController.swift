@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 	var services: TaskService!;
 	var tasks = [Task]()
 	var selectedTask: Task?
+	var storyboarded: UIStoryboard!
 	
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -19,9 +20,11 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		tableView.delegate = self
+		self.storyboarded = UIStoryboard(name: "Main", bundle: .main)
 		
 		services = TaskService()
 		self.setupNavigationBar()
+		navigationController?.navigationBar.tintColor = .brown
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -37,13 +40,19 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func goToAddPage() {
-		let storyboard = UIStoryboard(name: "Main", bundle: .main)
-		
-		let controller = storyboard.instantiateViewController(withIdentifier: "addViewController") as! AddTaskViewController
+		let controller = storyboarded.instantiateViewController(withIdentifier: "addViewController") as! AddTaskViewController
 		
 		if self.selectedTask != nil {
 			controller.task = self.selectedTask
 		}
+		
+		navigationController?.pushViewController(controller, animated: true)
+	}
+	
+	func goToDetailsPage(task: Task) {
+		let controller = storyboarded.instantiateViewController(identifier: "detailsViewController") as! DetailsTaskViewController
+		
+		controller.task = task;
 		
 		navigationController?.pushViewController(controller, animated: true)
 	}
@@ -87,6 +96,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.goToDetailsPage(task: self.tasks[indexPath.row]);
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	
