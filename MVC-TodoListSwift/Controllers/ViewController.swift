@@ -45,7 +45,6 @@ class ViewController: UIViewController {
 			controller.task = self.selectedTask
 		}
 		
-		
 		navigationController?.pushViewController(controller, animated: true)
 	}
 	
@@ -68,7 +67,6 @@ class ViewController: UIViewController {
 	}
 }
 
-
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.tasks.count
@@ -76,16 +74,10 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let task = self.tasks[indexPath.row]
-		
-		let cell: UITableViewCell = UITableViewCell()
-		cell.textLabel?.text = task.title
-		cell.detailTextLabel?.text = task.description
-		
-		if(task.isFinished) {
-			cell.backgroundColor = .red
-		} else {
-			cell.backgroundColor = .green
-		}
+	
+		let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TableViewCell
+		cell.labelText?.text = task.title
+		cell.isFinishedLabel?.text = task.isFinished ? "Finished" : "Not Finished"
 		
 		return cell;
 	}

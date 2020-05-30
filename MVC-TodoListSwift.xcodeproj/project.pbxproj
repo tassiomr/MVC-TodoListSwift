@@ -19,6 +19,7 @@
 		1879F6CF2481450F00345426 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6CE2481450F00345426 /* Task.swift */; };
 		1879F6D1248146AE00345426 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6D0248146AE00345426 /* TaskService.swift */; };
 		18A481BD2482933A002F6B25 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A481BC2482933A002F6B25 /* AddTaskViewController.swift */; };
+		18A481BF2482B2E4002F6B25 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A481BE2482B2E4002F6B25 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		1879F6CE2481450F00345426 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		1879F6D0248146AE00345426 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		18A481BC2482933A002F6B25 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		18A481BE2482B2E4002F6B25 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				1879F69D248144BA00345426 /* Main.storyboard */,
+				18A481BE2482B2E4002F6B25 /* TableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1879F69C248144BA00345426 /* ViewController.swift in Sources */,
+				18A481BF2482B2E4002F6B25 /* TableViewCell.swift in Sources */,
 				1879F698248144BA00345426 /* AppDelegate.swift in Sources */,
 				1879F6D1248146AE00345426 /* TaskService.swift in Sources */,
 				1879F6CF2481450F00345426 /* Task.swift in Sources */,

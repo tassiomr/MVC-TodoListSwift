@@ -18,6 +18,43 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qwx-Sv-V25">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.92439893910000004" green="1" blue="0.73268278949999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="80" id="3uR-hu-4cV" customClass="TableViewCell" customModule="MVC_TodoListSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3uR-hu-4cV" id="P8J-Bo-8g1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld4-0F-fB5">
+                                                    <rect key="frame" x="20" y="11" width="374" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmV-zA-du5">
+                                                    <rect key="frame" x="20" y="52.5" width="374" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ld4-0F-fB5" firstAttribute="top" secondItem="P8J-Bo-8g1" secondAttribute="topMargin" id="HGw-dI-fXu"/>
+                                                <constraint firstItem="dmV-zA-du5" firstAttribute="top" secondItem="Ld4-0F-fB5" secondAttribute="bottom" constant="16" id="OPL-re-0eY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dmV-zA-du5" secondAttribute="trailing" id="Rn7-Eu-7iR"/>
+                                                <constraint firstItem="dmV-zA-du5" firstAttribute="leading" secondItem="P8J-Bo-8g1" secondAttribute="leadingMargin" id="eTN-Kp-pzN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ld4-0F-fB5" secondAttribute="trailing" id="k9A-5K-BdL"/>
+                                                <constraint firstItem="Ld4-0F-fB5" firstAttribute="leading" secondItem="P8J-Bo-8g1" secondAttribute="leadingMargin" id="uWk-1l-BSp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.92439893910000004" green="1" blue="0.73268278949999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="isFinishedLabel" destination="dmV-zA-du5" id="NCH-Rw-GQ7"/>
+                                            <outlet property="labelText" destination="Ld4-0F-fB5" id="lwF-4T-M7U"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="cYo-Vo-M9i"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="bI3-SF-q0a"/>
@@ -88,8 +125,8 @@
                                 <color key="onTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.92439893910000004" green="1" blue="0.73268278949999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </switch>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-NE-ZyD">
-                                <rect key="frame" x="86" y="383" width="243" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-NE-ZyD">
+                                <rect key="frame" x="86" y="383" width="242" height="52"/>
                                 <color key="backgroundColor" red="0.75295144319999996" green="0.75292283299999996" blue="0.75294226409999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="c2y-0P-EeX"/>
