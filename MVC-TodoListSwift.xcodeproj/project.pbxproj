@@ -20,6 +20,7 @@
 		1879F6D1248146AE00345426 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1879F6D0248146AE00345426 /* TaskService.swift */; };
 		18A481BD2482933A002F6B25 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A481BC2482933A002F6B25 /* AddTaskViewController.swift */; };
 		18A481BF2482B2E4002F6B25 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A481BE2482B2E4002F6B25 /* TableViewCell.swift */; };
+		18A481C12482B86B002F6B25 /* DetailsTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A481C02482B86B002F6B25 /* DetailsTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1879F6D0248146AE00345426 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		18A481BC2482933A002F6B25 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		18A481BE2482B2E4002F6B25 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		18A481C02482B86B002F6B25 /* DetailsTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				1879F69B248144BA00345426 /* ViewController.swift */,
 				18A481BC2482933A002F6B25 /* AddTaskViewController.swift */,
+				18A481C02482B86B002F6B25 /* DetailsTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A481C12482B86B002F6B25 /* DetailsTaskViewController.swift in Sources */,
 				1879F69C248144BA00345426 /* ViewController.swift in Sources */,
 				18A481BF2482B2E4002F6B25 /* TableViewCell.swift in Sources */,
 				1879F698248144BA00345426 /* AppDelegate.swift in Sources */,
