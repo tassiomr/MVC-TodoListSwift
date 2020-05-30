@@ -111,8 +111,6 @@
 				1879F6CA248144D900345426 /* Services */,
 				1879F697248144BA00345426 /* AppDelegate.swift */,
 				1879F699248144BA00345426 /* SceneDelegate.swift */,
-				1879F69B248144BA00345426 /* ViewController.swift */,
-				1879F69D248144BA00345426 /* Main.storyboard */,
 				1879F6A3248144BD00345426 /* Assets.xcassets */,
 				1879F6A5248144BD00345426 /* LaunchScreen.storyboard */,
 				1879F6A8248144BD00345426 /* Info.plist */,
@@ -158,6 +156,7 @@
 		1879F6CC248144E800345426 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1879F69B248144BA00345426 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +164,7 @@
 		1879F6CD248144EE00345426 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1879F69D248144BA00345426 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
