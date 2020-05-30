@@ -31,16 +31,38 @@ class AddTaskViewController: UIViewController {
 	
 	
 	func setupUI () {
-		navigationItem.title = "New Task"
-		self.saveButton.isEnabled = false
-	}
-	
-	
-	@IBAction func creteTask(){
-		if let title = titleTextField.text {
-			self.service.create(task: Task(isFinished: self.toggle.isOn, title: title, description: descriptionTextArea.text ?? ""))
+		
+		guard let task = self.task else {
+			navigationItem.title = "New Task"
+			self.saveButton.isEnabled = false
+			
+			return
 		}
 		
+		navigationItem.title = task.title
+		self.saveButton.isEnabled = true
+		self.titleTextField.text = task.title
+		self.descriptionTextArea.text = task.description
+		self.toggle.isOn = task.isFinished!
+	}
+	
+	@IBAction func creteTask() {
+		
+		guard let task = self.task else {
+			if let title = titleTextField.text {
+				self.service.create(task: Task(isFinished: self.toggle.isOn, title: title, description: descriptionTextArea.text ?? ""))
+			}
+			
+			navigationController?.popViewController(animated: true)
+			
+			return
+		}
+		
+		task.title = titleTextField.text!
+		task.description = descriptionTextArea.text ?? ""
+		task.isFinished = toggle.isOn
+		
+		self.service.update(task: task)
 		navigationController?.popViewController(animated: true)
 	}
 }
@@ -71,5 +93,5 @@ extension AddTaskViewController : UITextViewDelegate, UITextFieldDelegate {
 		
 		return true
 	}
-
+	
 }
