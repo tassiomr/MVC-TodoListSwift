@@ -7,23 +7,25 @@
 //
 
 import UIKit
+import Foundation
 
-struct Task {
-    var id: String!
+class Task {
+    var id: String
     var isFinished: Bool
     var title: String
     var description: String
     var date: String
     var create_at: String
     var update_at: String
+   
     
-    init(id: String = UUID.init().uuidString,
+    init(id: String = UUID().uuidString,
          isFinished: Bool = false,
          title: String,
          description: String,
-         create_at: String?,
-         update_at: String?,
-         date: String?) {
+         create_at: String? = nil,
+         update_at: String? = nil,
+         date: String? = nil) {
         
         self.isFinished = isFinished;
         self.title = title;
@@ -35,10 +37,14 @@ struct Task {
         formatter.dateFormat = "dd.MM.yyyy"
         let result = formatter.string(from: dateNow)
         
-        
         self.date = date ?? result;
         self.create_at = create_at ?? result
         self.update_at = update_at ?? result
-        
     }
+    
+    func toggle()  {
+        self.isFinished = !self.isFinished
+    }
+    
+
 }
