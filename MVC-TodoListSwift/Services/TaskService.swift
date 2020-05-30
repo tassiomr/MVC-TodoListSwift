@@ -29,14 +29,16 @@ class TaskService {
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext;
-        let taskEntity = NSEntityDescription.entity(forEntityName: "TaskEntity", in: managedContext);
+        guard let taskEntity = NSEntityDescription.entity(forEntityName: "TaskEntity", in: managedContext) else { return };
         
-        taskEntity?.setValue(task.id, forKey: "id");
-        taskEntity?.setValue(task.title, forKey: "title");
-        taskEntity?.setValue(task.date, forKey: "date");
-        taskEntity?.setValue(task.date, forKey: "create_at");
-        taskEntity?.setValue(task.date, forKey: "update_at");
-        taskEntity?.setValue(task.description, forKey: "descript")
+        let taskRaw = NSManagedObject(entity: taskEntity, insertInto: managedContext);
+        taskRaw.setValue(task.id, forKey: "id");
+        taskRaw.setValue(task.title, forKey: "title");
+        taskRaw.setValue(task.date, forKey: "date");
+        taskRaw.setValue(task.create_at, forKey: "create_at");
+        taskRaw.setValue(task.update_at, forKey: "update_at");
+        taskRaw.setValue(task.description, forKey: "descript")
+        taskRaw.setValue(task.isFinished, forKey: "isFinished")
         
         do {
             try managedContext.save()
@@ -86,6 +88,7 @@ class TaskService {
             taskEntity.setValue(task.date, forKey: "create_at");
             taskEntity.setValue(task.date, forKey: "update_at");
             taskEntity.setValue(task.description, forKey: "descript")
+            taskEntity.setValue(task.isFinished, forKey: "isFinished")
             
             try! managedContext.save()
             
